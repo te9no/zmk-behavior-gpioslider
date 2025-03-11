@@ -1,0 +1,2 @@
+description: GPIO Slider behavior
+compatible: "zmk,behavior-gpioslider"

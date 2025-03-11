@@ -1,0 +1,5 @@
+DT_COMPAT_ZMK_BEHAVIOR_GPIOSLIDER := zmk,behavior-gpioslider
+
+config ZMK_BEHAVIOR_GPIOSLIDER
+    bool
+    default $(dt_compat_enabled,$(DT_COMPAT_ZMK_BEHAVIOR_GPIOSLIDER))
