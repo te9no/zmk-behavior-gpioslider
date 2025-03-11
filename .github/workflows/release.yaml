@@ -12,4 +12,4 @@ permissions:
 
 jobs:
   release:
-    uses: te9no/zmk-actions/.github/workflows/upgrade-module.yml
+    uses: te9no/zmk-actions/.github/workflows/upgrade-module.yml@v1

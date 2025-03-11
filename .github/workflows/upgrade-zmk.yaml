@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   upgrade-zmk:
-    uses: te9no/zmk-actions/.github/workflows/upgrade-zmk.yml
+    uses: te9no/zmk-actions/.github/workflows/upgrade-zmk.yml@v1
     secrets:
       # Name of PAT with write access to pull requests
       token: ${{ secrets.ZMK_ACTIONS_TOKEN }}
