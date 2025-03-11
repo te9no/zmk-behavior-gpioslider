@@ -3,4 +3,45 @@
 #include <dt-bindings/zmk/kscan_mock.h>
 
 / {
+    behaviors {
+        gpioslider: gpioslider {
+            compatible = "zmk,behavior-gpioslider";
+            #binding-cells = <0>;
+            bindings = <&kp VOLUME_UP>, <&kp VOLUME_DOWN>;
+            timeout-ms = <1000>;    // タイムアウト時間をDTSで設定可能に
+        };
+    };
+
+    gpioslider_keys {
+        compatible = "zmk,gpioslider-keys";
+        status = "okay";
+
+        slider_config {
+            sequence-timeout-ms = <1000>;  // シーケンスタイムアウト
+            debounce-period = <10>;        // デバウンス期間
+            num-buttons = <4>;             // ボタン数を設定可能に
+            sequence-up = <1 2 3 4>;       // 上方向のシーケンス
+            sequence-down = <4 3 2 1>;     // 下方向のシーケンス
+        };
+
+        gpio_keys_buttons: gpio_keys_buttons {
+            compatible = "gpio-keys";
+
+            button1: button_0 {
+                gpios = <&gpio0 1 (GPIO_ACTIVE_LOW)>;
+            };
+
+            button2: button_1 {
+                gpios = <&gpio0 2 (GPIO_ACTIVE_LOW)>;
+            };
+
+            button3: button_2 {
+                gpios = <&gpio0 3 (GPIO_ACTIVE_LOW)>;
+            };
+
+            button4: button_3 {
+                gpios = <&gpio0 4 (GPIO_ACTIVE_LOW)>;
+            };
+        };
+    };
 };
