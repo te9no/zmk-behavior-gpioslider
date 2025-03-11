@@ -9,22 +9,37 @@ properties:
     required: true
     description: Unique label for the GPIO slider
 
-  gpios:
+  gpio-keys-buttons:
     type: phandle-array
     required: true
-    description: GPIO pin to be used for the slider input
+    description: GPIO pins to be used for slider buttons (up to 4 pins)
 
-  poll-interval-ms:
+  num-buttons:
     type: int
-    default: 10
-    description: Polling interval in milliseconds
+    required: true
+    description: Number of buttons used in the slider (1-4)
+    
+  sequence-up:
+    type: array
+    required: true
+    description: Sequence of button numbers for upward movement
 
-  threshold-position-up:
-    type: int
-    default: 768
-    description: Threshold position for upward movement (0-1023)
+  sequence-down:
+    type: array
+    required: true
+    description: Sequence of button numbers for downward movement
 
-  threshold-position-down:
+  bindings:
+    type: phandle-array
+    required: true
+    description: Key bindings for up and down movements
+
+  debounce-period:
     type: int
-    default: 256
-    description: Threshold position for downward movement (0-1023)
+    default: 30
+    description: Debounce period in milliseconds
+
+  sequence-timeout:
+    type: int
+    default: 1000
+    description: Timeout in milliseconds for sequence recognition
